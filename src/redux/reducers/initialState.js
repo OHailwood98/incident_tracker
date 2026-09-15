@@ -1,5 +1,6 @@
-const InitialState = {
-  incidents: [],
+const initialState = {
+  courses: [],
+  authors: [],
 };
 
-export default InitialState;
+export default initialState;

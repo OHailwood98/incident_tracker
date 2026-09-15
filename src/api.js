@@ -6,10 +6,12 @@ const api = {
       axios
         .post("http://localhost:8080/api/incident/add", data)
         .then((res) => res.data),
-    getIncidents: () =>
+    getIncidents: () => {
+      console.dir("getIncidents");
       axios
         .get("http://localhost:8080/api/incident/getincidents")
-        .then((res) => res.data),
+        .then((res) => res.data);
+    },
   },
 };
 

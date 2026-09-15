@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import incidents from "./IncidentReducers";
+import courses from "./courseReducers";
 
 const rootReducer = combineReducers({
-  incidents: incidents,
+  courses: courses,
 });
 
 export default rootReducer;
