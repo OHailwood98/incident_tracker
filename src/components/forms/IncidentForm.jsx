@@ -1,11 +1,12 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
 import InlineError from "../messages/InlineError";
 
-const IncidentForm = ({ submit }) => {
+const IncidentForm = ({ submit, errors }) => {
   var [incidentData, setIncidentData] = useState({
     incident: "",
     incidentDescription: "",
@@ -20,10 +21,14 @@ const IncidentForm = ({ submit }) => {
     setIncidentData({ ...incidentData, [e.target.id]: e.target.value });
   }
 
-  function onSubmit() {
-    if (validator()) {
+  function Submit() {
+    var err = validator();
+    setError(err);
+    if (Object.keys(err) < 1) {
       console.dir("subbed");
       submit(incidentData);
+    } else {
+      console.dir("failed");
     }
   }
 
@@ -37,17 +42,18 @@ const IncidentForm = ({ submit }) => {
     if (!incidentData.affectedService)
       errors.affectedService = "Please select an affected service";
     if (!incidentData.reporter) errors.reporter = "Your name cannot be blank";
-    setError(errors);
-    if (Object.keys(error) < 1) {
-      return false;
-    } else {
-      return true;
-    }
+    return errors;
   }
 
   return (
-    <Form>
+    <Form onSubmit={(e) => Submit(e)}>
       <h5>Incident Form</h5>
+      {errors.global && (
+        <Alert variant="danger">
+          <Alert.Heading>Something Failed! :(</Alert.Heading>
+          <p>{errors.global}</p>
+        </Alert>
+      )}
       <Form.Group className="mb-4" controlId="incident">
         <Form.Label>Incident</Form.Label>
         <Form.Control
@@ -118,13 +124,14 @@ const IncidentForm = ({ submit }) => {
         {error.reporter && <InlineError message={error.reporter.toString()} />}
       </Form.Group>
 
-      <Button onClick={(e) => onSubmit(e)}>Submit</Button>
+      <Button onClick={(e) => Submit(e)}>Submit</Button>
     </Form>
   );
 };
 
 IncidentForm.propTypes = {
   submit: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
 };
 
 export default IncidentForm;
