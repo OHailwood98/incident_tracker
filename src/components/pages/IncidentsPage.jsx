@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import DisplayIncidentsForm from "../forms/DisplayIncidentsForm";
-//import { LoadIncidents2 } from "../../redux/actions/incidentActions";
-import { LoadCourses } from "../../redux/actions/courseActions";
+import { LoadIncidents } from "../../redux/actions/incidentActions";
 
 export default function IncidentPage() {
+  const dispatch = useDispatch();
   const incidents = useSelector((state) => state.incidents);
-
-  LoadCourses();
 
   useEffect(() => {
     console.dir("load");
-    LoadCourses();
+    dispatch(LoadIncidents());
   }, []);
   return (
     <div>
