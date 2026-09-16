@@ -32,11 +32,15 @@ function TopNavBar() {
         </Nav>
         {isAuthed && (
           <NavDropdown title={username} id="basic-nav-dropdown">
-            <NavDropdown.Item>
-              <Button as={Link} to="/" onClick={() => logout()}>
-                Logout
-              </Button>
+            <NavDropdown.Item href="/" onClick={() => logout()}>
+              Logout
             </NavDropdown.Item>
+          </NavDropdown>
+        )}
+        {!isAuthed && (
+          <NavDropdown title="welcome" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+            <NavDropdown.Item href="/signup">Create Account</NavDropdown.Item>
           </NavDropdown>
         )}
       </Navbar>
