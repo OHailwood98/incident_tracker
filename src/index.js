@@ -10,10 +10,13 @@ import "./App.css";
 import HomePage from "./components/pages/HomePage";
 import IncidentPage from "./components/pages/IncidentsPage";
 
+import TopNavBar from "./components/nav/TopNavBar";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      <TopNavBar />
       <BrowserRouter>
         <Routes>
           <Route index element={<HomePage />} />
