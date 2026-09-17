@@ -34,3 +34,18 @@ export const logout = () => {
     };
   };
 };
+
+export const signup = (credentials) => {
+  return function (dispatch) {
+    return api.user
+      .signup(credentials)
+      .then((user) => {
+        dispatch(userLoggedIn(user));
+        setAuthHeader(user.token);
+      })
+      .catch((error) => {
+        console.dir(error);
+        throw error;
+      });
+  };
+};

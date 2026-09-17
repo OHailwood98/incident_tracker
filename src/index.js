@@ -9,6 +9,7 @@ import "./index.css";
 import "./App.css";
 import HomePage from "./components/pages/HomePage";
 import IncidentPage from "./components/pages/IncidentsPage";
+import SignupPage from "./components/pages/SignupPage";
 
 import TopNavBar from "./components/nav/TopNavBar";
 
@@ -20,6 +21,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route index element={<HomePage />} />
+          <Route path="signup" element={<SignupPage />} />
           <Route path="incidents" element={<IncidentPage />} />
         </Routes>
       </BrowserRouter>
