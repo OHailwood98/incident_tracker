@@ -1,6 +1,4 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,7 +8,7 @@ import logo from "../../static/logo512.png";
 
 function TopNavBar() {
   const isAuthed = useSelector((state) => !!state.user.token);
-  const username = useSelector((state) => !!state.user.username) || null;
+  const username = useSelector((state) => state.user.username);
   return (
     <div>
       <Navbar bg="primary" variant="dark">
