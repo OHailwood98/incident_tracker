@@ -26,9 +26,7 @@ const IncidentForm = ({ submit, errors }) => {
     setError(err);
     if (Object.keys(err) < 1) {
       console.dir("subbed");
-      submit(incidentData).catch((err) => {
-        return setError(err.response.data.errors);
-      });
+      submit(incidentData);
     } else {
       console.dir("failed");
     }
