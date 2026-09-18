@@ -14,11 +14,11 @@ const api = {
   user: {
     login: (credentials) =>
       axios
-        .post("/api/user/login", { credentials })
+        .post("http://localhost:8080/api/user/login", { credentials })
         .then((res) => res.data.user),
     signup: (credentials) =>
       axios
-        .post("/api/user/signup", { credentials })
+        .post("http://localhost:8080/api/user/signup", { credentials })
         .then((res) => res.data.user),
   },
 };

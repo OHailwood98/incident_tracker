@@ -28,9 +28,7 @@ const SignupForm = ({ submit, errors }) => {
     setError(err);
     if (Object.keys(err) < 1) {
       console.dir("subbed");
-      submit(userData).catch((err) => {
-        return setError(err.response.data.errors);
-      });
+      submit(userData);
     } else {
       console.dir("failed");
     }
@@ -67,12 +65,10 @@ const SignupForm = ({ submit, errors }) => {
               value={userData.email}
               onChange={(e) => handleChange(e)}
             />
-            {error.email &&
-              (error.email.message ? (
-                <InlineError message="This Email is already in use" />
-              ) : (
-                <InlineError message={error.email} />
-              ))}
+            {error.email && <InlineError message={error.email} />}
+            {errors?.email && (
+              <InlineError message="This Email is already in use" />
+            )}
           </Form.Group>
           <Form.Group>
             <Form.Label>Pick a Username</Form.Label>
@@ -84,12 +80,10 @@ const SignupForm = ({ submit, errors }) => {
               value={userData.username}
               onChange={(e) => handleChange(e)}
             />
-            {error.username &&
-              (error.username.message ? (
-                <InlineError message="This username has already been taken" />
-              ) : (
-                <InlineError message={error.username} />
-              ))}
+            {error.username && <InlineError message={error.username} />}
+            {errors?.username && (
+              <InlineError message="This Username is already in use" />
+            )}
           </Form.Group>
         </Col>
         <Col md={{ span: 4, offset: 2 }}>
