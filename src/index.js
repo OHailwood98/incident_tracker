@@ -10,6 +10,7 @@ import "./App.css";
 import HomePage from "./components/pages/HomePage";
 import IncidentPage from "./components/pages/IncidentsPage";
 import SignupPage from "./components/pages/SignupPage";
+import LoginPage from "./components/pages/LoginPage";
 
 import TopNavBar from "./components/nav/TopNavBar";
 
@@ -22,6 +23,7 @@ root.render(
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="signup" element={<SignupPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="incidents" element={<IncidentPage />} />
         </Routes>
       </BrowserRouter>
