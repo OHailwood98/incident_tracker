@@ -1,18 +1,14 @@
+import { useSelector } from "react-redux";
+
 import DisplayIncident from "./DisplayIncident";
 
 function DisplayIncidentsForm() {
-  var IncidentData = {
-    incident: "incident",
-    incidentDescription: "incidentDescription",
-    severityLevel: 2,
-    affectedService: "SAP",
-    reporter: "reporter",
-  };
-  return (
-    <div className="IncidentList">
-      <DisplayIncident incidentData={IncidentData} />
-    </div>
-  );
+  const incidents = useSelector((state) => state.incidents);
+
+  var incidentlist = incidents.map((incident) => {
+    return <DisplayIncident incidentData={incident} />;
+  });
+  return <div className="IncidentList">{incidentlist}</div>;
 }
 
 export default DisplayIncidentsForm;
