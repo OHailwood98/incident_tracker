@@ -44,7 +44,6 @@ const DisplayIncident = ({ incidentData }) => {
                 </Col>
                 <Col md={{ span: 8, offset: 0 }}>
                   <Form.Control type="text" readOnly value={created} />
-                  {/* fix time input*/}
                 </Col>
               </Form.Group>
             </Col>
