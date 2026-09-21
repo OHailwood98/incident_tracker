@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 import Validator from "validator";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -27,10 +26,7 @@ const SignupForm = ({ submit, errors }) => {
     var err = validator();
     setError(err);
     if (Object.keys(err) < 1) {
-      console.dir("subbed");
       submit(userData);
-    } else {
-      console.dir("failed");
     }
   }
 
@@ -76,7 +72,7 @@ const SignupForm = ({ submit, errors }) => {
               type="text"
               id="username"
               name="username"
-              placeholder="BoyRacer"
+              placeholder="IrritatedUser47"
               value={userData.username}
               onChange={(e) => handleChange(e)}
             />
