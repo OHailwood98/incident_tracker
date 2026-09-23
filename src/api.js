@@ -10,6 +10,10 @@ const api = {
       axios
         .get("http://localhost:8080/api/incident/getincidents")
         .then((res) => res.data),
+    getIncident: (id) =>
+      axios
+        .post("http://localhost:8080/api/incident/getincident", id)
+        .then((res) => res.data),
   },
   user: {
     login: (credentials) =>

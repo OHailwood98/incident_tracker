@@ -3,6 +3,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const DisplayIncident = ({ incidentData }) => {
   var severity = "High";
@@ -92,7 +93,9 @@ const DisplayIncident = ({ incidentData }) => {
       </Row>
       <Row>
         <Col md={{ span: 2, offset: 9 }}>
-          <Button>show Desc</Button>
+          <Button as={Link} to={`/incident/${incidentData._id}`}>
+            View Incident
+          </Button>
         </Col>
       </Row>
     </div>

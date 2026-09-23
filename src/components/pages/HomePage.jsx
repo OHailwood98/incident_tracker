@@ -1,7 +1,7 @@
 import api from "../../api";
 import { useState } from "react";
 
-import IncidentForm from "../forms/IncidentForm";
+import IncidentForm from "../forms/AddIncidentForm";
 import IncidentConfirmed from "../forms/IncidentConfirmed";
 
 export default function HomePage() {

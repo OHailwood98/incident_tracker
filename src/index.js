@@ -11,6 +11,7 @@ import HomePage from "./components/pages/HomePage";
 import IncidentPage from "./components/pages/IncidentsPage";
 import SignupPage from "./components/pages/SignupPage";
 import LoginPage from "./components/pages/LoginPage";
+import IncidentDisplayPage from "./components/pages/IncidentDisplayPage";
 
 import TopNavBar from "./components/nav/TopNavBar";
 
@@ -25,6 +26,7 @@ root.render(
           <Route path="signup" element={<SignupPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="incidents" element={<IncidentPage />} />
+          <Route path="incident/:incident" element={<IncidentDisplayPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>
