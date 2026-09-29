@@ -2,17 +2,19 @@ import { useSelector } from "react-redux";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Navbar from "react-bootstrap/Navbar";
+import { useNavigate } from "react-router";
 
 import { logout } from "../../redux/actions/userActions";
 import logo from "../../static/logo512.png";
 
 function TopNavBar() {
+  const navigate = useNavigate();
   const isAuthed = useSelector((state) => !!state.user.token);
   const username = useSelector((state) => state.user.username);
   return (
     <div>
       <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="/">
+        <Navbar.Brand onClick={() => navigate("/")}>
           <img
             src={logo}
             alt="Brands Hatch"
@@ -22,10 +24,12 @@ function TopNavBar() {
         </Navbar.Brand>
         <Nav variant="tabs" defaultActiveKey={window.location.pathname}>
           <Nav.Item>
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/incidents">Incidents</Nav.Link>
+            <Nav.Link onClick={() => navigate("/incidents")}>
+              Incidents
+            </Nav.Link>
           </Nav.Item>
         </Nav>
         {isAuthed && (
@@ -37,8 +41,12 @@ function TopNavBar() {
         )}
         {!isAuthed && (
           <NavDropdown title="welcome" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-            <NavDropdown.Item href="/signup">Create Account</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => navigate("/login")}>
+              Login
+            </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => navigate("/signup")}>
+              Create Account
+            </NavDropdown.Item>
           </NavDropdown>
         )}
       </Navbar>
