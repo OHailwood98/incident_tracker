@@ -1,4 +1,9 @@
+import DisplayComment from "./DisplayComment";
+
 const DisplayCommentsForm = ({ comments }) => {
+  var commentList = comments?.map((comment) => {
+    return <DisplayComment commentData={comment} />;
+  });
   if (!comments) {
     return (
       <div>
@@ -9,7 +14,7 @@ const DisplayCommentsForm = ({ comments }) => {
     );
   }
 
-  return <div>{comments.length}</div>;
+  return <div>{commentList}</div>;
 };
 
 export default DisplayCommentsForm;
