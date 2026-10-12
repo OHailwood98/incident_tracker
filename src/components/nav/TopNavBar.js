@@ -11,6 +11,7 @@ function TopNavBar() {
   const navigate = useNavigate();
   const isAuthed = useSelector((state) => !!state.user.token);
   const username = useSelector((state) => state.user.username);
+  const isAdmin = useSelector((state) => !!state.user.admin);
   return (
     <div>
       <Navbar bg="primary" variant="dark">
@@ -31,6 +32,11 @@ function TopNavBar() {
               Incidents
             </Nav.Link>
           </Nav.Item>
+          {isAdmin && (
+            <Nav.Item>
+              <Nav.Link onClick={() => navigate("/user")}>Users</Nav.Link>
+            </Nav.Item>
+          )}
         </Nav>
         {isAuthed && (
           <NavDropdown title={username} id="basic-nav-dropdown">

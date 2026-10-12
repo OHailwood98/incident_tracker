@@ -7,11 +7,14 @@ import { Provider } from "react-redux";
 import store from "./redux/configureStore";
 import "./index.css";
 import "./App.css";
+import RequireAdmin from "./utils/RequireAdmin";
+
 import HomePage from "./components/pages/HomePage";
 import IncidentPage from "./components/pages/IncidentsPage";
 import SignupPage from "./components/pages/SignupPage";
 import LoginPage from "./components/pages/LoginPage";
 import IncidentDisplayPage from "./components/pages/IncidentDisplayPage";
+import UserPage from "./components/pages/UserPage";
 
 import TopNavBar from "./components/nav/TopNavBar";
 
@@ -27,6 +30,9 @@ root.render(
           <Route path="login" element={<LoginPage />} />
           <Route path="incidents" element={<IncidentPage />} />
           <Route path="incident/:incident" element={<IncidentDisplayPage />} />
+          <Route element={<RequireAdmin />}>
+            <Route path="user" element={<UserPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>
