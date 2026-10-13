@@ -34,7 +34,7 @@ function TopNavBar() {
           </Nav.Item>
           {isAdmin && (
             <Nav.Item>
-              <Nav.Link onClick={() => navigate("/user")}>Users</Nav.Link>
+              <Nav.Link onClick={() => navigate("/users")}>Users</Nav.Link>
             </Nav.Item>
           )}
         </Nav>

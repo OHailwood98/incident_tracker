@@ -31,7 +31,7 @@ root.render(
           <Route path="incidents" element={<IncidentPage />} />
           <Route path="incident/:incident" element={<IncidentDisplayPage />} />
           <Route element={<RequireAdmin />}>
-            <Route path="user" element={<UserPage />} />
+            <Route path="users" element={<UserPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
