@@ -29,6 +29,16 @@ const api = {
         .post("http://localhost:8080/api/user/signup", { credentials })
         .then((res) => res.data.user),
   },
+  users: {
+    getUsers: () =>
+      axios
+        .get("http://localhost:8080/api/user/getusers")
+        .then((res) => res.data),
+    makeAdmin: (id) =>
+      axios
+        .post("http://localhost:8080/api/user/makeadmin", id)
+        .then((res) => res.data),
+  },
 };
 
 export default api;
