@@ -7,7 +7,7 @@ export default function IncidentReducer(
 ) {
   switch (action.type) {
     case types.LOAD_INCIDENTS:
-      return action.courses;
+      return action.incidents;
     default:
       return state;
   }

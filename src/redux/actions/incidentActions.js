@@ -1,8 +1,8 @@
 import * as types from "../ActionTypes";
 import api from "../../api";
 
-export function LoadIncidentsAction(courses) {
-  return { type: types.LOAD_INCIDENTS, courses };
+export function LoadIncidentsAction(incident) {
+  return { type: types.LOAD_INCIDENTS, incident };
 }
 
 export function LoadIncidents() {
