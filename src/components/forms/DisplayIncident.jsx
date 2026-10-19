@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 
 const DisplayIncident = ({ incidentData }) => {
   var severity = "High";
-  if (incidentData.severityLevel === 2) severity = "Medium";
-  else if (incidentData.severityLevel === 1) severity = "Low";
+  if (incidentData.severityLevel > 1) {
+    severity = "Medium";
+  } else if (incidentData.severityLevel > 2) severity = "Low";
 
   const created = new Date(incidentData.createdAt).toLocaleString(undefined, {
     year: "numeric",
