@@ -13,7 +13,7 @@ const IncidentSorter = ({ SetSort, sortValue }) => {
             <Form.Label>sort by</Form.Label>
             <Form.Select
               aria-label="Default select example"
-              onChange={(e) => SetSort(e)}
+              onChange={(e) => SetSort(e.target.value)}
               value={sortValue}
             >
               <option value="tm-new">Newest</option>
