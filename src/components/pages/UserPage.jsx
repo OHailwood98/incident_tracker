@@ -9,7 +9,7 @@ export default function SignupPage() {
 
   useEffect(() => {
     dispatch(LoadUsers());
-  });
+  }, []);
 
   return (
     <div>
