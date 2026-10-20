@@ -1,12 +1,19 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { MakeAdmin } from "../../redux/actions/usersActions";
 
 function UsersTable() {
+  const dispatch = useDispatch();
   let users = useSelector((state) => state.users);
 
   users = FixList(users);
+
+  function toggleAdmin(id) {
+    dispatch(MakeAdmin(id));
+  }
 
   let tableData = users.map((user) => {
     return (
@@ -16,7 +23,9 @@ function UsersTable() {
           <td>{user.email}</td>
           <td>{user.admin.toString()}</td>
           <td>
-            <Button>{user.admin ? "Remove Admin" : "Make Admin"}</Button>
+            <Button onClick={() => toggleAdmin(user._id)}>
+              {user.admin ? "Remove Admin" : "Make Admin"}
+            </Button>
           </td>
         </tr>
       </React.Fragment>

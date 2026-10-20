@@ -1,7 +1,7 @@
 import * as types from "../ActionTypes";
 import initialState from "./initialState";
 
-export default function UsersReducer(state = initialState.incidents, action) {
+export default function UsersReducer(state = initialState.users, action) {
   switch (action.type) {
     case types.UPDATE_USER:
       return state.map((user) => {

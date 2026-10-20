@@ -14,7 +14,6 @@ export function LoadUsers() {
     return api.users
       .getUsers()
       .then((users) => {
-        console.dir(users);
         dispatch(LoadUsersAction(users));
       })
       .catch((error) => {
@@ -29,7 +28,6 @@ export function MakeAdmin(id) {
     return api.users
       .makeAdmin(id)
       .then((user) => {
-        console.dir(user);
         dispatch(UpdateUsersAction(user));
       })
       .catch((error) => {

@@ -36,8 +36,8 @@ const api = {
         .then((res) => res.data),
     makeAdmin: (id) =>
       axios
-        .post("http://localhost:8080/api/user/makeadmin", id)
-        .then((res) => res.data),
+        .post("http://localhost:8080/api/user/makeadmin", { id })
+        .then((res) => res.data.user),
   },
 };
 
