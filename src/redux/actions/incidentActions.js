@@ -10,7 +10,6 @@ export function LoadIncidents() {
     return api.incidents
       .getIncidents()
       .then((incidents) => {
-        console.dir(incidents);
         dispatch(LoadIncidentsAction(incidents));
       })
       .catch((error) => {

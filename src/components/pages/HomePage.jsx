@@ -10,11 +10,9 @@ export default function HomePage() {
   const [incidnetID, setIncidnetID] = useState("");
 
   function submit(data) {
-    console.dir(data);
     api.incidents
       .addIncident(data)
       .then((id) => {
-        console.dir(id);
         setSuccess(true);
         setIncidnetID(id);
       })

@@ -12,7 +12,6 @@ export default function LoginPage() {
   var [error, setError] = useState({});
 
   function submit(data) {
-    console.dir("login");
     dispatch(login(data))
       .then(() => navigate("/"))
       .catch((err) => {
