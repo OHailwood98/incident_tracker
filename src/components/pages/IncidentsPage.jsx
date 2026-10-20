@@ -18,12 +18,10 @@ export default function IncidentPage() {
   }, []);
 
   function sortList(value) {
-    console.dir(value);
     SetSort(value);
     switch (value) {
       case "tm-new":
         incidentList = incidents;
-        incidentList = incidentList.reverse();
         break;
       case "tm-old":
         incidentList = incidents;
