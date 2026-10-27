@@ -28,6 +28,11 @@ function TopNavBar() {
             <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
+            <Nav.Link onClick={() => navigate("/addincident")}>
+              Add Incident
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link onClick={() => navigate("/incidents")}>
               Incidents
             </Nav.Link>

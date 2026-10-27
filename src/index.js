@@ -10,6 +10,7 @@ import "./App.css";
 import RequireAdmin from "./utils/RequireAdmin";
 
 import HomePage from "./components/pages/HomePage";
+import AddIncidentPage from "./components/pages/AddIncidentPage";
 import IncidentPage from "./components/pages/IncidentsPage";
 import SignupPage from "./components/pages/SignupPage";
 import LoginPage from "./components/pages/LoginPage";
@@ -28,6 +29,7 @@ root.render(
           <Route index element={<HomePage />} />
           <Route path="signup" element={<SignupPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="addincident" element={<AddIncidentPage />} />
           <Route path="incidents" element={<IncidentPage />} />
           <Route path="incident/:incident" element={<IncidentDisplayPage />} />
           <Route element={<RequireAdmin />}>

@@ -1,35 +1,27 @@
-import api from "../../api";
-import { useState } from "react";
-
-import IncidentForm from "../forms/AddIncidentForm";
-import IncidentConfirmed from "../forms/IncidentConfirmed";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router";
 
 export default function HomePage() {
-  const [errors, setErrors] = useState({});
-  const [success, setSuccess] = useState(false);
-  const [incidnetID, setIncidnetID] = useState("");
-
-  function submit(data) {
-    api.incidents
-      .addIncident(data)
-      .then((id) => {
-        setSuccess(true);
-        setIncidnetID(id);
-      })
-      .catch((err) => {
-        return setErrors(err.response.data.errors);
-      });
-  }
+  const navigate = useNavigate();
   return (
     <div>
-      <h1 class="display-4">Report your Incident Here</h1>
+      <h1 class="display-4">IT support page</h1>
       <br />
       <hr />
       <br />
-      {!success && <IncidentForm submit={submit} errors={errors} />}
-      {success && (
-        <IncidentConfirmed incidentID={incidnetID} setSuccess={setSuccess} />
-      )}
+      <Row>
+        <Col md={{ span: 4, offset: 1 }}>
+          <h4>Got Issues with IT services?</h4>
+          <h5>Report them Here</h5>
+          <Button onClick={() => navigate("addIncident")}>
+            {" "}
+            Add Incident{" "}
+          </Button>
+        </Col>
+        <Col md={{ span: 4, offset: 2 }}></Col>
+      </Row>
     </div>
   );
 }
