@@ -6,12 +6,13 @@ import { useNavigate } from "react-router";
 
 import { logout } from "../../redux/actions/userActions";
 import logo from "../../static/logo512.png";
+import { IsManagerRole } from "../../utils/isAdminRole";
 
 function TopNavBar() {
   const navigate = useNavigate();
   const isAuthed = useSelector((state) => !!state.user.token);
   const username = useSelector((state) => state.user.username);
-  const isAdmin = useSelector((state) => !!state.user.admin);
+  const IsManager = IsManagerRole();
   return (
     <div>
       <Navbar bg="primary" variant="dark">
@@ -37,7 +38,7 @@ function TopNavBar() {
               Incidents
             </Nav.Link>
           </Nav.Item>
-          {isAdmin && (
+          {IsManager && (
             <Nav.Item>
               <Nav.Link onClick={() => navigate("/users")}>Users</Nav.Link>
             </Nav.Item>
