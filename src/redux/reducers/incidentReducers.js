@@ -6,6 +6,14 @@ export default function IncidentReducer(
   action,
 ) {
   switch (action.type) {
+    case types.UPDATE_INCIDENT:
+      return state.map((incident) => {
+        if (incident._id === action.courses._id) {
+          return action.courses;
+        } else {
+          return incident;
+        }
+      });
     case types.LOAD_INCIDENTS:
       return action.courses;
     default:

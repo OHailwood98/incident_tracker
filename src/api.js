@@ -18,6 +18,10 @@ const api = {
       axios
         .post("http://localhost:8080/api/incident/addmessage", data)
         .then((res) => res.data),
+    changeStatus: (data) =>
+      axios
+        .post("http://localhost:8080/api/incident/changestatus", data)
+        .then((res) => res.data),
   },
   user: {
     login: (credentials) =>
