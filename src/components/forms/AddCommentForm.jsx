@@ -8,9 +8,17 @@ import Button from "react-bootstrap/Button";
 
 import InlineError from "../messages/InlineError";
 
-const AddCommentForm = ({ addMessage, error }) => {
+const AddCommentForm = ({ addMessage, status, error }) => {
   const [message, setMessage] = useState("");
   const username = useSelector((state) => state.user.username);
+
+  if (status.statusStr === "CLOSED") {
+    return (
+      <div>
+        <h4>Comments cannot be added to a Closed Incident</h4>
+      </div>
+    );
+  }
 
   if (username) {
     return (

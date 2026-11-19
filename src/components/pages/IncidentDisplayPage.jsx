@@ -36,7 +36,9 @@ export default function IncidentDisplayPage() {
       <DisplayStatusForm incidentData={incidentData} />
       <IncidentForm incidentData={incidentData} />
       <DisplayCommentsForm comments={incidentData?.messages} />
-      {!role && <AddCommentForm addMessage={addMessage} />}
+      {!role && (
+        <AddCommentForm addMessage={addMessage} status={incidentData.status} />
+      )}
       {role && <EditStatusForm incidentData={incidentData} />}
     </div>
   );
