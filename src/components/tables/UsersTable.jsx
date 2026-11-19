@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { useSelector, useDispatch } from "react-redux";
 
 import { MakeAdmin } from "../../redux/actions/usersActions";
@@ -11,21 +11,27 @@ function UsersTable() {
 
   users = FixList(users);
 
-  function toggleAdmin(id) {
-    dispatch(MakeAdmin(id));
+  function toggleAdmin(id, role) {
+    dispatch(MakeAdmin(id, role));
   }
 
   let tableData = users.map((user) => {
+    var role = "";
     return (
       <React.Fragment key={user._id}>
         <tr>
           <td>{user.username}</td>
           <td>{user.email}</td>
-          <td>{user.admin.toString()}</td>
           <td>
-            <Button onClick={() => toggleAdmin(user._id)}>
-              {user.admin ? "Remove Admin" : "Make Admin"}
-            </Button>
+            <Form.Select
+              aria-label="Default select example"
+              value={role || user.role}
+              onChange={(e) => toggleAdmin(user._id, e.target.value)}
+            >
+              <option value={"USR"}>User</option>
+              <option value={"HMNG"}>Hardware Manager</option>
+              <option value={"SMNG"}>Software Manager</option>
+            </Form.Select>
           </td>
         </tr>
       </React.Fragment>
@@ -38,8 +44,7 @@ function UsersTable() {
         <tr>
           <th>UserName</th>
           <th>Email</th>
-          <th>Is Admin</th>
-          <th>Toggle Admin</th>
+          <th>Role</th>
         </tr>
       </thead>
       <tbody>{tableData}</tbody>

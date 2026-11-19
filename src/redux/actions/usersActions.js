@@ -23,10 +23,10 @@ export function LoadUsers() {
   };
 }
 
-export function MakeAdmin(id) {
+export function MakeAdmin(id, role) {
   return function (dispatch) {
     return api.users
-      .makeAdmin(id)
+      .makeAdmin(id, role)
       .then((user) => {
         dispatch(UpdateUsersAction(user));
       })
